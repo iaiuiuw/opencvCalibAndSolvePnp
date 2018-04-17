@@ -1,0 +1,8 @@
+﻿  showCam_work.cpp
+d:\users\chrisj\documents\projects\2018\lexus\pnpsolvetest\thirdparty\opencv\includes\opencv2\core\mat.hpp(1926): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\users\chrisj\documents\projects\2018\lexus\pnpsolvetest\thirdparty\opencv\includes\opencv2\core\persistence.hpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\users\chrisj\documents\projects\2018\lexus\pnpsolvetest\thirdparty\opencv\includes\opencv2\core\utility.hpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\users\chrisj\documents\projects\2018\lexus\pnpsolvetest\thirdparty\opencv\includes\opencv2\core\utility.hpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\users\chrisj\documents\projects\2018\lexus\pnpsolvetest\thirdparty\opencv\includes\opencv2\imgproc.hpp(617): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  cv.vcxproj -> D:\Users\chrisJ\Documents\projects\2018\Lexus\cv_2\x64\Debug\cv.exe
+  cv.vcxproj -> D:\Users\chrisJ\Documents\projects\2018\Lexus\cv_2\x64\Debug\cv.pdb (Partial PDB)
