@@ -1,4 +1,4 @@
-﻿// SlovePNPByOpenCV.cpp : 定义控制台应用程序的入口点。
+// SlovePNPByOpenCV.cpp : 定义控制台应用程序的入口点。
 //
 
 /*
@@ -151,7 +151,11 @@ int caculateCamRT(cv::Mat im, vector<cv::Point2d> Points2D)
 	double camD[9];
 
 	for (int i = 0; i < 9; i++) {
-		sscanf_s(&camD_strs[i][0], "%lf", &camD[i]);
+		if (i < camD_strs.size()) {
+			sscanf_s(camD_strs[i].c_str(), "%lf", &camD[i]);
+		} else {
+			camD[i] = 0.0; // Default value for missing parameters
+		}
 	}
 
 	cv::Mat camera_matrix = cv::Mat(3, 3, CV_64FC1, camD);
@@ -159,7 +163,11 @@ int caculateCamRT(cv::Mat im, vector<cv::Point2d> Points2D)
 	//畸变参数
 	double distCoeffD[5];// = { 0.265902785145087, -9.349493851523201, -0.007005920612312271, -0.009140975503677254, 76.79043372421278 };
 	for (int i = 0; i < 5; i++) {
-		sscanf_s(&distCoeffD_strs[i][0], "%lf", &distCoeffD[i]);
+		if (i < distCoeffD_strs.size()) {
+			sscanf_s(distCoeffD_strs[i].c_str(), "%lf", &distCoeffD[i]);
+		} else {
+			distCoeffD[i] = 0.0; // Default value for missing parameters
+		}
 	}
 	
 	cv::Mat distortion_coefficients = cv::Mat(5, 1, CV_64FC1, distCoeffD);

@@ -1,4 +1,4 @@
-﻿
+
 #include <iostream>  
 #include <fstream>  
 #include<io.h>
@@ -102,26 +102,28 @@ void calibcamera() {
 	}
 	cout << "total = " << total << endl;
 	int CornerNum = board_size.width*board_size.height;  //每张图片上总的角点数  
-	for (int ii = 0; ii<total; ii++)
+	
+	// Correctly iterate through images and their corner points
+	for (int i = 0; i < total; i++)
 	{
-		if (0 == ii % CornerNum)// 24 是每幅图片的角点个数。此判断语句是为了输出 图片号，便于控制台观看   
+		cout << "--> 第 " << (i + 1) << "图片的数据 --> : " << endl;
+		
+		// Iterate through corner points in current image
+		for (int j = 0; j < image_points_seq[i].size(); j++)
 		{
-			int i = -1;
-			i = ii / CornerNum;
-			int j = i + 1;
-			cout << "--> 第 " << j << "图片的数据 --> : " << endl;
+			if (0 == j % 3)  // 此判断语句，格式化输出，便于控制台查看  
+			{
+				cout << endl;
+			}
+			else
+			{
+				cout.width(10);
+			}
+			//输出所有的角点  
+			cout << " -->" << image_points_seq[i][j].x;
+			cout << " -->" << image_points_seq[i][j].y;
 		}
-		if (0 == ii % 3)  // 此判断语句，格式化输出，便于控制台查看  
-		{
-			cout << endl;
-		}
-		else
-		{
-			cout.width(10);
-		}
-		//输出所有的角点  
-		cout << " -->" << image_points_seq[ii][0].x;
-		cout << " -->" << image_points_seq[ii][0].y;
+		cout << endl;
 	}
 	cout << "角点提取完成！\n";
 

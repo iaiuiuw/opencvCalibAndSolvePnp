@@ -35,7 +35,7 @@ void split(const char *s, vector<string> &strs, char delim = ' ') {
 }
 
 void readCamParameter(double *cameraMatrixArray, double *distCoeffsArray) {
-	//¶ÁÈëÄÚ²Î
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Ú²ï¿½
 	ifstream camD_fin("calib_output.txt");
 
 	string camD_str;
@@ -60,15 +60,23 @@ void readCamParameter(double *cameraMatrixArray, double *distCoeffsArray) {
 	//double camD[9];
 
 	for (int i = 0; i < 9; i++) {
-		sscanf_s(&camD_strs[i][0], "%lf", &cameraMatrixArray[i]);
+		if (i < camD_strs.size()) {
+			sscanf_s(camD_strs[i].c_str(), "%lf", &cameraMatrixArray[i]);
+		} else {
+			cameraMatrixArray[i] = 0.0; // Default value for missing parameters
+		}
 	}
 
 	//*cameraMatrix = cv::Mat(3, 3, CV_64FC1, camD);
 
-	//»û±ä²ÎÊý
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	//double distCoeffD[5];// = { 0.265902785145087, -9.349493851523201, -0.007005920612312271, -0.009140975503677254, 76.79043372421278 };
 	for (int i = 0; i < 5; i++) {
-		sscanf_s(&distCoeffD_strs[i][0], "%lf", &distCoeffsArray[i]);
+		if (i < distCoeffD_strs.size()) {
+			sscanf_s(distCoeffD_strs[i].c_str(), "%lf", &distCoeffsArray[i]);
+		} else {
+			distCoeffsArray[i] = 0.0; // Default value for missing parameters
+		}
 	}
 
 	//*distCoeffs = cv::Mat(5, 1, CV_64FC1, distCoeffD);
